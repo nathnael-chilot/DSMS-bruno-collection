@@ -1,0 +1,43 @@
+info:
+  name: Create Student
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/students"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "firstName": "Jane",
+        "middleName": "A",
+        "lastName": "Doe",
+        "gender": "Female",
+        "birthdate": "2000-05-14",
+        "address": "Bole, Addis Ababa",
+        "contact": "0911223344",
+        "email": "jane.doe@example.com",
+        "username": "janedoe",
+        "password": "student123"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test('Status is 201', function () { expect(res.getStatus()).to.equal(201); });
+        const jsonData = res.getBody();
+        if (jsonData.student && jsonData.student._id) { bru.setEnvVar('studentId', jsonData.student._id); }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. Auto-saves the created student's _id to {{studentId}}.

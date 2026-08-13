@@ -1,0 +1,31 @@
+info:
+  name: Create Student (Duplicate Username)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/students"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "firstName": "Jane",
+        "lastName": "Doe2",
+        "gender": "Female",
+        "email": "jane.doe2@example.com",
+        "username": "janedoe",
+        "password": "student123"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Should return 409 — username already in use.

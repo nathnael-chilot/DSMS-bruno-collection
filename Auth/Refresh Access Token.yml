@@ -1,0 +1,32 @@
+info:
+  name: Refresh Access Token
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/auth/refresh"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "refreshToken": "{{refreshToken}}"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const jsonData = res.getBody();
+        if (jsonData.accessToken) { bru.setEnvVar('token', jsonData.accessToken); }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Exchanges a valid refresh token for a new short-lived access token.

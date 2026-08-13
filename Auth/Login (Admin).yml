@@ -1,0 +1,42 @@
+info:
+  name: Login (Admin)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/auth/login"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "identifier": "{{adminUsername}}",
+        "password": "{{adminPassword}}"
+      }
+
+runtime:
+  variables:
+    - name: adminUsername
+      value: admin
+    - name: adminPassword
+      value: NewPass123!
+    - name: baseUrl
+      value: http://192.168.100.34:5000
+  scripts:
+    - type: after-response
+      code: |-
+        test('Status is 200', function () { expect(res.getStatus()).to.equal(200); });
+        const jsonData = res.getBody();
+        if (jsonData.accessToken) { bru.setEnvVar('token', jsonData.accessToken); }
+        if (jsonData.refreshToken) { bru.setEnvVar('refreshToken', jsonData.refreshToken); }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Login accepts either username or email in 'identifier'. Auto-saves accessToken and refreshToken.

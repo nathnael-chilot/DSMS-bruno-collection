@@ -1,0 +1,26 @@
+info:
+  name: Login (via Email)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/auth/login"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "identifier": "{{adminEmail}}",
+        "password": "{{adminPassword}}"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Same login endpoint, demonstrating email works as the identifier too.

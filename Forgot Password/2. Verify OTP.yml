@@ -1,0 +1,33 @@
+info:
+  name: 2. Verify OTP
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/auth/verify-otp"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{adminEmail}}",
+        "otp": "123456"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const jsonData = res.getBody();
+        if (jsonData.resetToken) { bru.setEnvVar('resetToken', jsonData.resetToken); }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Replace the otp value with the 6-digit code received by email. On success, auto-saves resetToken.

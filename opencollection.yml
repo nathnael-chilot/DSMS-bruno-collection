@@ -1,0 +1,29 @@
+opencollection: 1.0.0
+
+info:
+  name: DSMS Backend
+
+request:
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+docs:
+  content: |-
+    Driving School Management System — backend REST API collection.
+
+    Environment variables used:
+    - baseUrl
+    - token (auto-set after login)
+    - refreshToken (auto-set after login)
+    - resetToken (auto-set after verify-otp)
+    - studentId (auto-set after creating a student)
+
+    Workflow: run 'Login (Admin)' first — tokens are auto-captured for all subsequent requests.
+  type: text/markdown
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

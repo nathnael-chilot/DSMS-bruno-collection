@@ -1,0 +1,17 @@
+info:
+  name: Logout
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/auth/logout"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Clears the stored refresh token, invalidating future /refresh calls.
