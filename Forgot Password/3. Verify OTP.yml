@@ -1,7 +1,7 @@
 info:
-  name: 2. Verify OTP
+  name: 3. Verify OTP
   type: http
-  seq: 2
+  seq: 3
 
 http:
   method: POST
@@ -30,4 +30,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Replace the otp value with the 6-digit code received by email. On success, auto-saves resetToken.
+docs: Replace the otp value with the 6-digit code received by email. Rejected if expired, even if it would otherwise match. On success, auto-saves resetToken.

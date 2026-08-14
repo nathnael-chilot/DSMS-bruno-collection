@@ -1,32 +1,32 @@
 info:
-  name: Create Student (Duplicate Username)
+  name: Create Instructor (Duplicate Username)
   type: http
   seq: 2
 
 http:
   method: POST
-  url: "{{baseUrl}}/api/students"
+  url: "{{baseUrl}}/api/instructors"
   body:
     type: multipart-form
     data:
       - name: firstName
         type: text
-        value: Jane
+        value: Juan
       - name: lastName
         type: text
-        value: Doe2
+        value: Cruz2
       - name: gender
         type: text
-        value: Female
+        value: Male
       - name: email
         type: text
-        value: jane.doe2@example.com
+        value: juan.cruz2@example.com
       - name: username
         type: text
-        value: janedoe
+        value: juandelacruz
       - name: password
         type: text
-        value: student123
+        value: instructor123
   auth: inherit
 
 settings:

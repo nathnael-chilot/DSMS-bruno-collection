@@ -1,0 +1,17 @@
+info:
+  name: Delete Instructor
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/api/instructors/{{instructorId}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Also deletes the instructor's uploaded profile picture from disk, if any.

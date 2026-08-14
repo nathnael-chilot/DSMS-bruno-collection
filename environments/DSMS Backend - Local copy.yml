@@ -4,15 +4,19 @@ variables:
     value: http://192.168.100.34:5000
   - name: adminUsername
     value: admin
+    description: ""
   - name: adminEmail
     value: ymbtest01@gmail.com
   - name: studentId
     value: ""
   - secret: true
     name: adminPassword
+    description: ""
   - secret: true
     name: token
+    description: ""
   - secret: true
     name: refreshToken
+    description: ""
   - secret: true
     name: resetToken

@@ -13,3 +13,5 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: Also deletes the student's uploaded profile picture from disk, if any.
