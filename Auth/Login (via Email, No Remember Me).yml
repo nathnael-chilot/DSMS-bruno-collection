@@ -1,5 +1,5 @@
 info:
-  name: Login (via Email)
+  name: Login (via Email, No Remember Me)
   type: http
   seq: 2
 
@@ -23,4 +23,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Same login endpoint, demonstrating email works as the identifier too.
+docs: rememberMe omitted — defaults to the short 1-day refresh token session.

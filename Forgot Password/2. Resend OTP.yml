@@ -1,7 +1,7 @@
 info:
-  name: ResendOTP
+  name: 2. Resend OTP
   type: http
-  seq: 8
+  seq: 2
 
 http:
   method: POST
@@ -13,17 +13,13 @@ http:
     type: json
     data: |-
       {
-        "email": "jane.doe@example.com"
+        "email": "{{adminEmail}}"
       }
-  auth: inherit
-
-runtime:
-  variables:
-    - name: baseUrl
-      value: http://192.168.100.34:5000
 
 settings:
   encodeUrl: true
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: Issues a fresh OTP and invalidates the previous one. Use if the first OTP expired or wasn't received.

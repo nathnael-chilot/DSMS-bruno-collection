@@ -1,5 +1,5 @@
 info:
-  name: Login (Admin)
+  name: Login (Admin, Remember Me)
   type: http
   seq: 1
 
@@ -14,17 +14,11 @@ http:
     data: |-
       {
         "identifier": "{{adminUsername}}",
-        "password": "{{adminPassword}}"
+        "password": "{{adminPassword}}",
+        "rememberMe": true
       }
 
 runtime:
-  variables:
-    - name: adminUsername
-      value: admin
-    - name: adminPassword
-      value: NewPass123!
-    - name: baseUrl
-      value: http://192.168.100.34:5000
   scripts:
     - type: after-response
       code: |-
@@ -39,4 +33,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Login accepts either username or email in 'identifier'. Auto-saves accessToken and refreshToken.
+docs: "identifier accepts username OR email. rememberMe: true issues a 30-day refresh token instead of the default 1-day one. Auto-saves accessToken and refreshToken."

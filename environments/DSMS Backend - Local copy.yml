@@ -1,18 +1,26 @@
 name: DSMS Backend - Local copy
 variables:
   - name: baseUrl
-    value: http://localhost:5000
+    value: http://192.168.100.34:5000
+    description: ""
   - name: adminUsername
     value: admin
+    description: ""
   - name: adminEmail
-    value: admin@drivingschool.com
+    value: na02thy@gmail.com
+    description: ""
   - secret: true
     name: adminPassword
+    description: ""
   - secret: true
     name: token
+    description: ""
   - secret: true
     name: refreshToken
+    description: ""
   - secret: true
     name: resetToken
+    description: ""
   - name: studentId
     value: ""
+    description: ""

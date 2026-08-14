@@ -22,4 +22,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Sends a 6-digit OTP to the given email. Check inbox — response is generic regardless of whether the email exists.
+docs: Sends a 6-digit numeric OTP to the given email, expires in 10 minutes. Check inbox — response is generic regardless of whether the email exists.

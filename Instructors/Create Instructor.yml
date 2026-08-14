@@ -1,44 +1,47 @@
 info:
-  name: Create Student
+  name: Create Instructor
   type: http
   seq: 1
 
 http:
   method: POST
-  url: "{{baseUrl}}/api/students"
+  url: "{{baseUrl}}/api/instructors"
   body:
     type: multipart-form
     data:
       - name: firstName
         type: text
-        value: Jane
+        value: Juan
       - name: middleName
         type: text
-        value: A
+        value: Dela
       - name: lastName
         type: text
-        value: Doe
+        value: Cruz
       - name: gender
         type: text
-        value: Female
+        value: Male
       - name: birthdate
         type: text
-        value: 2000-05-14
+        value: 1990-03-20
       - name: address
         type: text
-        value: Bole, Addis Ababa
+        value: Piassa, Addis Ababa
       - name: contact
         type: text
-        value: "0911223344"
+        value: "0922334455"
       - name: email
         type: text
-        value: jane.doe@example.com
+        value: juan.delacruz@example.com
       - name: username
         type: text
-        value: janedoe
+        value: juandelacruz
       - name: password
         type: text
-        value: student123
+        value: instructor123
+      - name: drivingExperience
+        type: text
+        value: 8 years, licensed driving instructor since 2016
       - name: profilePicture
         type: file
         value: []
@@ -50,7 +53,7 @@ runtime:
       code: |-
         test('Status is 201', function () { expect(res.getStatus()).to.equal(201); });
         const jsonData = res.getBody();
-        if (jsonData.student && jsonData.student._id) { bru.setEnvVar('studentId', jsonData.student._id); }
+        if (jsonData.instructor && jsonData.instructor._id) { bru.setEnvVar('instructorId', jsonData.instructor._id); }
 
 settings:
   encodeUrl: true
@@ -58,4 +61,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Admin-only. Body is form-data to support the optional profilePicture file (JPEG/PNG/WEBP, max 2MB). Auto-saves the created student's _id to {{studentId}}.
+docs: Admin-only. Body is form-data to support the optional profilePicture file (JPEG/PNG/WEBP, max 2MB). Auto-saves the created instructor's _id to {{instructorId}}.

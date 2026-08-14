@@ -1,11 +1,11 @@
 info:
-  name: Create Student (Missing Fields)
+  name: Create Instructor (Missing Fields)
   type: http
   seq: 3
 
 http:
   method: POST
-  url: "{{baseUrl}}/api/students"
+  url: "{{baseUrl}}/api/instructors"
   body:
     type: multipart-form
     data:

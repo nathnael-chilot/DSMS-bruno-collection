@@ -1,20 +1,23 @@
 info:
-  name: Update Student
+  name: Update Instructor
   type: http
   seq: 6
 
 http:
   method: PUT
-  url: "{{baseUrl}}/api/students/{{studentId}}"
+  url: "{{baseUrl}}/api/instructors/{{instructorId}}"
   body:
     type: multipart-form
     data:
       - name: contact
         type: text
-        value: "0999888777"
+        value: "0933445566"
       - name: address
         type: text
-        value: Kazanchis, Addis Ababa
+        value: Kirkos, Addis Ababa
+      - name: drivingExperience
+        type: text
+        value: 9 years, licensed instructor
       - name: profilePicture
         type: file
         value: []
