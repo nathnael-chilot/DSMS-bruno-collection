@@ -1,0 +1,17 @@
+info:
+  name: Delete Enrollment
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/api/enrollments/{{enrollmentId}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. Returns the freed slot back to the associated schedule — check Get Schedule By Id afterward to confirm slotsAvailable incremented.

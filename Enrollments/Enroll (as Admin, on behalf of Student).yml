@@ -1,0 +1,28 @@
+info:
+  name: Enroll (as Admin, on behalf of Student)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/enrollments"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "scheduleId": "{{scheduleId}}",
+        "student": "{{studentId}}",
+        "remarks": "Enrolled by admin"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as admin. Includes 'student' to enroll on behalf of a specific student.

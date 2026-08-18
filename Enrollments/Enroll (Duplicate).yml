@@ -1,0 +1,26 @@
+info:
+  name: Enroll (Duplicate)
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/enrollments"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "scheduleId": "{{scheduleId}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Re-running the same student against the same schedule should return 409 — already enrolled.

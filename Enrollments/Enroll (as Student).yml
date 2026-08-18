@@ -1,0 +1,35 @@
+info:
+  name: Enroll (as Student)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/enrollments"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "scheduleId": "{{scheduleId}}",
+        "remarks": "First lesson"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test('Status is 201', function () { expect(res.getStatus()).to.equal(201); });
+        const jsonData = res.getBody();
+        if (jsonData.enrollment && jsonData.enrollment._id) { bru.setEnvVar('enrollmentId', jsonData.enrollment._id); }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run this while logged in as a student (or admin — student is inferred from the token). Omit 'student' in the body to enroll yourself. Auto-saves the created enrollment's _id to {{enrollmentId}}.
