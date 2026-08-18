@@ -1,0 +1,29 @@
+info:
+  name: Create Schedule (Invalid Instructor)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/schedules"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "date": "2026-09-01T09:00:00.000Z",
+        "instructor": "{{studentId}}",
+        "slotsAvailable": 10,
+        "amount": 3500
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Passes a student's id as the instructor — should return 400 Instructor not found or is not a valid instructor account.

@@ -1,0 +1,28 @@
+info:
+  name: Update Schedule
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/schedules/{{scheduleId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "slotsAvailable": 8,
+        "amount": 4000,
+        "remarks": "Rescheduled"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. scheduleCode cannot be changed.

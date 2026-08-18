@@ -32,10 +32,10 @@ http:
         value: "0911223344"
       - name: email
         type: text
-        value: jane.doe@example.com
+        value: jane@example.com
       - name: username
         type: text
-        value: janedoe
+        value: jane
       - name: password
         type: text
         value: student123

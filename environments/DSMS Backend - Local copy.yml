@@ -2,25 +2,25 @@ name: DSMS Backend - Local copy
 variables:
   - name: baseUrl
     value: http://192.168.100.34:5000
-    description: ""
   - name: adminUsername
     value: admin
-    description: ""
   - name: adminEmail
     value: na02thy@gmail.com
-    description: ""
+  - name: studentId
+    value: 6a8305a9202b3c28eeaa69cb
+  - name: instructorId
+    value: 6a82f418cd0cd07e2458540a
+  - name: scheduleId
+    value: 6a82f6accd0cd07e2458540b
+  - name: packageId
+    value: 6a82f770cd0cd07e2458540c
+  - name: enrollmentId
+    value: 6a830513202b3c28eeaa69ca
   - secret: true
     name: adminPassword
-    description: ""
   - secret: true
     name: token
-    description: ""
   - secret: true
     name: refreshToken
-    description: ""
   - secret: true
     name: resetToken
-    description: ""
-  - name: studentId
-    value: ""
-    description: ""
