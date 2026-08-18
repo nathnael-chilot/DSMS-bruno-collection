@@ -14,7 +14,7 @@ http:
     data: |-
       {
         "email": "{{adminEmail}}",
-        "otp": "123456"
+        "otp": "136936"
       }
 
 runtime:
