@@ -1,5 +1,5 @@
 info:
-  name: Enroll (Missing scheduleId)
+  name: Enroll (Missing scheduleId and packageId)
   type: http
   seq: 4
 
@@ -13,7 +13,7 @@ http:
     type: json
     data: |-
       {
-        "remarks": "Missing scheduleId"
+        "remarks": "Missing scheduleId and packageId"
       }
   auth: inherit
 
@@ -23,4 +23,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Should return 400 with express-validator field errors.
+docs: Should return 400 with express-validator field errors for both scheduleId and packageId.

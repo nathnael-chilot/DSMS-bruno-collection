@@ -1,7 +1,7 @@
 info:
-  name: Enroll (No Token)
+  name: Enroll (Missing packageId only)
   type: http
-  seq: 11
+  seq: 5
 
 http:
   method: POST
@@ -14,8 +14,9 @@ http:
     data: |-
       {
         "scheduleId": "{{scheduleId}}",
-        "packageId": "{{packageId}}"
+        "remarks": "Missing packageId"
       }
+  auth: inherit
 
 settings:
   encodeUrl: true
@@ -23,4 +24,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: Should return 401 — no token provided.
+docs: Should return 400 — packageId is required.

@@ -13,7 +13,8 @@ http:
     type: json
     data: |-
       {
-        "scheduleId": "{{scheduleId}}"
+        "scheduleId": "{{scheduleId}}",
+        "packageId": "{{packageId}}"
       }
   auth: inherit
 

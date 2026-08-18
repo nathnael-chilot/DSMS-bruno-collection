@@ -1,7 +1,7 @@
 info:
   name: Delete Enrollment (Non-Admin, Forbidden)
   type: http
-  seq: 9
+  seq: 10
 
 http:
   method: DELETE

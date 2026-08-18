@@ -18,9 +18,13 @@ variables:
     value: 6a830513202b3c28eeaa69ca
   - secret: true
     name: adminPassword
+    description: ""
   - secret: true
     name: token
+    description: ""
   - secret: true
     name: refreshToken
+    description: ""
   - secret: true
     name: resetToken
+    description: ""
