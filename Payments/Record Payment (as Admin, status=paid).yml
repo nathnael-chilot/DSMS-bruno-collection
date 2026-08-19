@@ -1,0 +1,32 @@
+info:
+  name: Record Payment (as Admin, status=paid)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/payments"
+  body:
+    type: multipart-form
+    data:
+      - name: enrollmentId
+        type: text
+        value: "{{enrollmentId}}"
+      - name: amount
+        type: text
+        value: "3500"
+      - name: status
+        type: text
+        value: paid
+      - name: remarks
+        type: text
+        value: Cash payment received at front desk
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as admin. Admin can set status explicitly at creation time (e.g. a cash payment already verified in person).

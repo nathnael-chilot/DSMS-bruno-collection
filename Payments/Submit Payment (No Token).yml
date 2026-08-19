@@ -1,0 +1,25 @@
+info:
+  name: Submit Payment (No Token)
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/payments"
+  body:
+    type: multipart-form
+    data:
+      - name: enrollmentId
+        type: text
+        value: "{{enrollmentId}}"
+      - name: amount
+        type: text
+        value: "3500"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Should return 401 — no token provided.

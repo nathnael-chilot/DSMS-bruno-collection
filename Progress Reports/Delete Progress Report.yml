@@ -1,0 +1,17 @@
+info:
+  name: Delete Progress Report
+  type: http
+  seq: 10
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/api/progress-reports/{{progressReportId}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin, or the instructor who created the report, can delete it.

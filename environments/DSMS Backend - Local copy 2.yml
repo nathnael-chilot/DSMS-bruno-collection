@@ -1,4 +1,4 @@
-name: DSMS Backend - Local copy
+name: DSMS Backend - Local copy 2
 variables:
   - name: baseUrl
     value: http://192.168.100.34:5000
@@ -15,16 +15,14 @@ variables:
   - name: packageId
     value: 6a82f770cd0cd07e2458540c
   - name: enrollmentId
-    value: 6a830513202b3c28eeaa69ca
+    value: 6a8305cd202b3c28eeaa69cc
+  - name: paymentId
+    value: 6a85509696d9bde990a96de1
   - secret: true
     name: adminPassword
-    description: ""
   - secret: true
     name: token
-    description: ""
   - secret: true
     name: refreshToken
-    description: ""
   - secret: true
     name: resetToken
-    description: ""

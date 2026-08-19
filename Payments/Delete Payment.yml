@@ -1,0 +1,17 @@
+info:
+  name: Delete Payment
+  type: http
+  seq: 10
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}/api/payments/{{paymentId}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. Reserved for correcting mistaken entries. Also deletes the uploaded proof file from disk, if any.

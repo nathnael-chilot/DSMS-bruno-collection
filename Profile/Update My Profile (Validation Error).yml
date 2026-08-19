@@ -1,0 +1,23 @@
+info:
+  name: Update My Profile (Validation Error)
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/profile"
+  body:
+    type: multipart-form
+    data:
+      - name: gender
+        type: text
+        value: InvalidValue
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Should return 400 — gender must be Male or Female.

@@ -1,0 +1,17 @@
+info:
+  name: Get Dashboard Stats (as Admin)
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/dashboard"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as admin. Returns instructorCount, studentCount, totalIncome, and monthlySales (last 12 months, paid payments only).

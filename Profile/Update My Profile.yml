@@ -1,0 +1,29 @@
+info:
+  name: Update My Profile
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/profile"
+  body:
+    type: multipart-form
+    data:
+      - name: contact
+        type: text
+        value: "0999111222"
+      - name: address
+        type: text
+        value: Kirkos, Addis Ababa
+      - name: profilePicture
+        type: file
+        value: []
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Available to any authenticated role — updates only your own profile. profilePicture is optional; uploading a new one deletes the old file from disk. role, password, accountStatus, and username cannot be changed here.

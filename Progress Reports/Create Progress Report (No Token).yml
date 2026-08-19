@@ -1,0 +1,27 @@
+info:
+  name: Create Progress Report (No Token)
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/progress-reports"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "trainingName": "Parallel Parking",
+        "student": "{{studentId}}",
+        "score": 85
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Should return 401 — no token provided.

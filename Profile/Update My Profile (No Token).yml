@@ -1,0 +1,22 @@
+info:
+  name: Update My Profile (No Token)
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/profile"
+  body:
+    type: multipart-form
+    data:
+      - name: contact
+        type: text
+        value: "0999111222"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Should return 401 — no token provided.

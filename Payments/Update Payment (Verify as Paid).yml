@@ -1,0 +1,27 @@
+info:
+  name: Update Payment (Verify as Paid)
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/payments/{{paymentId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "status": "paid",
+        "remarks": "Verified and marked paid"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. Simulates admin reviewing the uploaded proof and marking the payment verified.

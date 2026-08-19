@@ -1,0 +1,17 @@
+info:
+  name: Payment Status Breakdown (Pie Chart)
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/dashboard/payment-status-breakdown"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. Count and total amount per payment status (paid/unpaid/partial) — always returns all three, even at zero.

@@ -1,0 +1,17 @@
+info:
+  name: Get All Progress Reports
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/progress-reports"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Scoped by role: admin sees all, instructor sees only reports they created, student sees only their own."

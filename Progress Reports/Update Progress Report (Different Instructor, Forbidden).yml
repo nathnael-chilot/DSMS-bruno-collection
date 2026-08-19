@@ -1,0 +1,26 @@
+info:
+  name: Update Progress Report (Different Instructor, Forbidden)
+  type: http
+  seq: 9
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/progress-reports/{{progressReportId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "score": 50
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as a DIFFERENT instructor (did not create this report) — should return 403.

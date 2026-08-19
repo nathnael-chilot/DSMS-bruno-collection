@@ -1,0 +1,40 @@
+info:
+  name: Submit Payment (as Student)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/payments"
+  body:
+    type: multipart-form
+    data:
+      - name: enrollmentId
+        type: text
+        value: "{{enrollmentId}}"
+      - name: amount
+        type: text
+        value: "3500"
+      - name: remarks
+        type: text
+        value: First installment
+      - name: proofOfPayment
+        type: file
+        value: []
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test('Status is 201', function () { expect(res.getStatus()).to.equal(201); });
+        const jsonData = res.getBody();
+        if (jsonData.payment && jsonData.payment._id) { bru.setEnvVar('paymentId', jsonData.payment._id); }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as a student. Status always defaults to 'unpaid' regardless of any status field sent — only admin can set it. proofOfPayment accepts JPEG/PNG/WEBP/PDF, max 5MB. Auto-saves the created payment's _id to {{paymentId}}.

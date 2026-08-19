@@ -1,0 +1,17 @@
+info:
+  name: Package Popularity (Bar Chart)
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/dashboard/package-popularity"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. Enrollment count per package, sorted by popularity.

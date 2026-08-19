@@ -1,0 +1,23 @@
+info:
+  name: Submit Payment (Missing Fields)
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/payments"
+  body:
+    type: multipart-form
+    data:
+      - name: remarks
+        type: text
+        value: Missing enrollmentId and amount
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Should return 400 with express-validator field errors.

@@ -1,0 +1,37 @@
+info:
+  name: Create Progress Report (as Instructor)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/progress-reports"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "trainingName": "Parallel Parking",
+        "student": "{{studentId}}",
+        "score": 85,
+        "remarks": "Good progress, needs more practice on tight spaces"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test('Status is 201', function () { expect(res.getStatus()).to.equal(201); });
+        const jsonData = res.getBody();
+        if (jsonData.report && jsonData.report._id) { bru.setEnvVar('progressReportId', jsonData.report._id); }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as the instructor who actually has an enrollment with this student. The instructor is taken from the token, not the body. Auto-saves the created report's _id to {{progressReportId}}.

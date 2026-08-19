@@ -1,0 +1,16 @@
+info:
+  name: Get Dashboard Stats (No Token)
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/dashboard"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Should return 401 — no token provided.

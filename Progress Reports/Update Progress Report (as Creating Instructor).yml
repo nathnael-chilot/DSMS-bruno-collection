@@ -1,0 +1,27 @@
+info:
+  name: Update Progress Report (as Creating Instructor)
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/progress-reports/{{progressReportId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "score": 92,
+        "remarks": "Improved significantly on retest"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as the same instructor who created this report.

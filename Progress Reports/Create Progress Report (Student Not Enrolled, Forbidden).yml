@@ -1,0 +1,28 @@
+info:
+  name: Create Progress Report (Student Not Enrolled, Forbidden)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/progress-reports"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "trainingName": "Highway Driving",
+        "student": "{{studentId}}",
+        "score": 70
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as an instructor who has NO enrollment relationship with this student — should return 403.

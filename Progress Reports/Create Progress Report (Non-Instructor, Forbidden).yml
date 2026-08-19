@@ -1,0 +1,28 @@
+info:
+  name: Create Progress Report (Non-Instructor, Forbidden)
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/progress-reports"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "trainingName": "Parallel Parking",
+        "student": "{{studentId}}",
+        "score": 85
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as admin or student — should return 403 (route restricted to instructor role only).

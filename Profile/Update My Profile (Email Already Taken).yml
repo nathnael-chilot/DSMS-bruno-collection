@@ -1,0 +1,23 @@
+info:
+  name: Update My Profile (Email Already Taken)
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/profile"
+  body:
+    type: multipart-form
+    data:
+      - name: email
+        type: text
+        value: "{{adminEmail}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Run while logged in as a non-admin user, attempting to claim the admin's email — should return 409.

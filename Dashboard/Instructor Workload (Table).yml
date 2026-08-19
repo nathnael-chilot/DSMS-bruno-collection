@@ -1,0 +1,17 @@
+info:
+  name: Instructor Workload (Table)
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/dashboard/instructor-workload"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Admin-only. Each instructor's current schedule count and distinct student count.
